@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOHTAREF PS2 - Easily Download Game ART Covers</title>
+    <meta name="description" content="A dedicated site to download ART covers for PlayStation 2 games. Easily search by Game ID and get ZIP packs ready for OPL and other uses.">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="ar" href="https://mohtaref-ps2-art-for-opl.netlify.app/" />
+    <link rel="alternate" hreflang="en" href="https://mohtaref-ps2-art-for-opl.netlify.app/en/" />
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #c8c8c8;
+            text-align: center;
+            line-height: 1.6;
+        }
+        #page-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #33A1FF;
+            margin-bottom: 20px;
+        }
+        h1 .highlight-red {
+            color: #ff3333;
+        }
+        .site-description, .instructions {
+            text-align: left; /* Changed to left for LTR */
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #262626;
+            border-radius: 5px;
+        }
+        .site-description h3, .instructions h3 {
+            color: #E0E0E0;
+            margin-top: 0;
+        }
+        .site-description p, .site-description li, .instructions p, .instructions li {
+            font-size: 1.1em;
+            color: #c8c8c8;
+        }
+        .site-description ul {
+            list-style-type: none;
+            padding-left: 0; /* Changed from padding-right for LTR */
+        }
+        .site-description li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #5ca9fc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #8ec1fa;
+            text-decoration: underline;
+        }
+        #search-area {
+            margin-bottom: 20px;
+        }
+        #search-area input[type="text"] {
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 350px;
+            box-sizing: border-box;
+            background-color: #333333;
+            color: #ffffff;
+            font-size: 1em;
+            display: block;
+            margin: 0 auto 15px auto;
+        }
+        #search-area button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+            display: block;
+            margin: 0 auto;
+        }
+        #search-area button:hover {
+            background-color: #0056b3;
+        }
+        #status-messages {
+            margin-top: 20px;
+            min-height: 25px;
+            font-size: 1.1em;
+        }
+        .error {
+            color: #ff6666;
+        }
+        .loading {
+            color: #f0f0f0;
+        }
+        .success {
+            color: #66ff66;
+        }
+        #results {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        #results a.download-link {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 1em;
+            min-width: 250px;
+            text-align: center;
+        }
+        #results a.download-link:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        .site-description .copyright-text {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-container">
+        <h1><span class="highlight-red">MOHTAREF PS2</span> ART Downloader for PS2 Games</h1>
+
+        <div class="site-description">
+            <h3>Follow Us & Stay Informed:</h3>
+            <ul>
+                <li>Don't forget to subscribe to our YouTube channel: <a href="https://youtube.com/@mohtaref_ps2?si=0z4x36S8ylMKzEDc" target="_blank" rel="noopener noreferrer">Click here to access the channel</a></li>
+                <li>Join us on:
+                    <ul>
+                        <li><a href="https://t.me/mohtaref_ps2_1" target="_blank" rel="noopener noreferrer">Telegram Channel</a></li>
+                        <li><a href="https://t.me/mohtaref_ps2_3/788" target="_blank" rel="noopener noreferrer">Followers' forum for quick solutions 🔥</a></li>
+                        <li><a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer">Topics group</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="copyright-text">All rights reserved to MOHTAREF PS2.</p>
+        </div>
+
+        <div id="search-area">
+            <input type="text" id="gameIdInput" placeholder="Enter Game ID (e.g., SLUS_203.15)">
+            <button onclick="searchArchives()">Search</button>
+        </div>
+
+        <div id="status-messages">
+            <p id="message-area" class="loading" style="display:none;"> </p>
+        </div>
+
+        <div id="results">
+            </div>
+
+        <div class="instructions">
+            <h3>How to use the site:</h3>
+            <ol>
+                <li>Enter the Game ID for the PlayStation 2 game you want in the search box above.</li>
+                <li>Click the "Search" button.</li>
+                <li>If a matching ART archive is found, a download link for the game's ZIP file will appear.</li>
+                <li>Click the link to download the ZIP file. It will be saved with its original name.</li>
+                <li>After downloading, extract the ZIP file on your device to use the images for OPL or any other purpose.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let allGameArchives = [];
+        const gameIdInput = document.getElementById('gameIdInput');
+        const resultsDiv = document.getElementById('results');
+        const messageArea = document.getElementById('message-area');
+        
+        // --- Path updated for being inside the /en/ folder ---
+        const zipArchivesBaseUrl = '../ps2_covers/'; 
+
+        window.onload = async function() {
+            showMessage('Loading archives list...', 'loading');
+            try {
+                // --- Path updated for being inside the /en/ folder ---
+                const response = await fetch('../ps2_covers.json'); 
+                if (!response.ok) {
+                    throw new Error(`Failed to load JSON file: ${response.status} ${response.statusText}`);
+                }
+                allGameArchives = await response.json();
+                if (!Array.isArray(allGameArchives)) {
+                    throw new Error('JSON file does not contain a valid array.');
+                }
+                if (allGameArchives.length > 0 && (typeof allGameArchives[0].id === 'undefined' || typeof allGameArchives[0].archiveFile === 'undefined')) {
+                    throw new Error("The data structure in the JSON file is incorrect. Each entry must have 'id' and 'archiveFile'.");
+                }
+                showMessage('Archives list loaded successfully. Ready to search.', 'success');
+            } catch (error) {
+                console.error("Error loading or parsing JSON file:", error);
+                showMessage(`Failed to load archives list: ${error.message}`, 'error');
+                allGameArchives = [];
+            }
+        };
+
+        function showMessage(message, type = 'info') {
+            messageArea.textContent = message;
+            messageArea.className = type;
+            messageArea.style.display = message ? 'block' : 'none';
+        }
+
+        function searchArchives() {
+            const gameId = gameIdInput.value.trim().toUpperCase();
+            resultsDiv.innerHTML = '';
+
+            if (allGameArchives.length === 0 && !messageArea.classList.contains('error')) {
+                 showMessage('Archives list has not been loaded yet or is empty. Please wait or check the JSON file.', 'error');
+                 return;
+            }
+            if (!gameId) {
+                showMessage('Please enter a Game ID to search.', 'error');
+                return;
+            }
+
+            const foundArchives = allGameArchives.filter(archiveEntry => {
+                if (typeof archiveEntry !== 'object' || archiveEntry === null || typeof archiveEntry.id !== 'string') return false;
+                return archiveEntry.id.toUpperCase().startsWith(gameId);
+            });
+
+            if (foundArchives.length > 0) {
+                showMessage(`Found ${foundArchives.length} matching archive(s):`, 'info');
+                foundArchives.forEach(archiveEntry => {
+                    const archiveFilename = archiveEntry.archiveFile;
+                    
+                    const link = document.createElement('a');
+                    link.href = `${zipArchivesBaseUrl}${archiveFilename}`;
+                    link.download = archiveFilename;
+                    link.textContent = `Download ${archiveFilename}`;
+                    link.className = 'download-link';
+                    link.title = `Click to download the archive file: ${archiveFilename}`;
+
+                    resultsDiv.appendChild(link);
+                });
+            } else {
+                showMessage('No archives found matching this ID.', 'info');
+            }
+        }
+
+        gameIdInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                searchArchives();
+            }
+        });
+    </script>
+</body>
+</html>
