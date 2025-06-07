@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mohtarefps2.github.io/mohtaref-ps2-art-opl/sitemap.xml
