@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- الصفحة العربية -->
   <url>
-    <loc>https://mohtarefps2.github.io/mohtaref-ps2-art-opl/</loc>
-    <lastmod>2025-06-06</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://mohtarefps2.github.io/mohtaref_ps2_cover_art_OPL/</loc>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- الصفحة الإنجليزية -->
   <url>
-    <loc>https://mohtarefps2.github.io/mohtaref-ps2-art-opl/en/</loc>
-    <lastmod>2025-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://mohtarefps2.github.io/mohtaref_ps2_cover_art_OPL/en/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
-
 </urlset>
