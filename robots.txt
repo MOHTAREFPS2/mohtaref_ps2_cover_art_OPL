@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://mohtarefps2.github.io/mohtaref_ps2_cover_art_OPL/sitemap.xml
