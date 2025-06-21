@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         body {
             font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -60,27 +62,24 @@
             font-size: 1.08em;
             color: #c8c8c8;
         }
-        /* تعديل المسافات بين الروابط الزرقاء */
         .site-description ul {
             list-style-type: none;
             padding-right: 0;
         }
         .site-description li {
-            margin-bottom: 5px; /* تقليل المسافة السفلية بين العناصر */
+            margin-bottom: 5px;
         }
         .site-description ul ul {
-            padding-right: 20px; /* تعديل المسافة البادئة للقائمة الفرعية */
+            padding-right: 20px;
             margin-top: 5px;
         }
-
-        /* --- تعديلات الصورة والنص --- */
         .site-description .game-id-example-container {
             text-align: center;
             margin: 20px auto;
             max-width: 100%;
         }
         .site-description .game-id-example-container img {
-            max-width: 100%; /* تكبير عرض الصورة الأقصى */
+            max-width: 100%;
             height: auto;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.4);
@@ -94,11 +93,9 @@
             font-weight: bold;
             font-size: 1em;
             text-shadow: 0 0 5px rgba(255,255,0,0.5);
-            display: block; /* يضمن أن النص يأخذ سطراً كاملاً */
-            margin-top: 15px; /* زيادة المسافة العلوية قليلاً */
+            display: block;
+            margin-top: 15px;
         }
-        /* --- نهاية التعديلات --- */
-
         .instructions {
             text-align: right;
             margin-top: 30px;
@@ -112,9 +109,13 @@
             margin-top: 0;
             font-size: 1.4em;
         }
+        .instructions ol {
+            padding-right: 20px; /* لإعطاء مسافة للائحة */
+        }
         .instructions p, .instructions li {
             font-size: 1.15em;
             color: #c8c8c8;
+            margin-bottom: 10px; /* إضافة مسافة بين عناصر الشرح */
         }
         a {
             color: #5ca9fc;
@@ -172,7 +173,9 @@
             gap: 10px;
         }
         #results a.download-link {
-            display: inline-block;
+            display: inline-flex; /* Use inline-flex for better alignment */
+            align-items: center;
+            justify-content: center;
             padding: 10px 15px;
             background-color: #007bff;
             color: white;
@@ -191,22 +194,29 @@
             font-size: 0.9em;
             color: #888888;
         }
+        /* --- تنسيقات بسيطة للأيقونات --- */
+        i.fas, i.fab {
+            margin-left: 8px; /* مسافة على يسار الأيقونة */
+        }
+        a > i, button > i {
+            margin-right: 0; /* تأكيد عدم وجود مسافة إضافية */
+        }
     </style>
 </head>
 <body>
     <div id="page-container">
-        <h1>موقع <span class="highlight-red">محترف PS2</span> لتحميل صور ART الالعاب بكل سهولة</h1>
+        <h1><i class="fas fa-gamepad"></i>موقع <span class="highlight-red">محترف PS2</span> لتحميل صور ART الالعاب بكل سهولة</h1>
 
         <div class="site-description">
-            <h3>تابعنا وكن على اطلاع:</h3>
+            <h3><i class="fas fa-satellite-dish"></i>تابعنا وكن على اطلاع:</h3>
             <ul>
-                <li>لا تنسى الاشتراك في قناة اليوتيوب: <a href="https://youtube.com/@mohtaref_ps2?si=0z4x36S8ylMKzEDc" target="_blank" rel="noopener noreferrer">اشترك الان ❤️</a></li>
+                <li><a href="https://youtube.com/@mohtaref_ps2?si=0z4x36S8ylMKzEDc" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i>اشترك الان في قناة اليوتيوب ❤️</a></li>
                 <li>انضم معنا في:
                     <ul>
-                        <li>1-<a href="https://t.me/mohtaref_ps2_1" target="_blank" rel="noopener noreferrer">قناة التيليكرام</a></li>
-                        <li>2-<a href="https://t.me/mohtaref_ps2_3/788" target="_blank" rel="noopener noreferrer">⁦منتدى المتابعين للحل السريع</a></li>
-                        <li>3-<a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer">مجموعة الموضوعات</a></li>
-                        <li>4-<a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer">قناة التيك توك</a></li>
+                        <li>1-<a href="https://t.me/mohtaref_ps2_1" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i>قناة التيليكرام</a></li>
+                        <li>2-<a href="https://t.me/mohtaref_ps2_3/788" target="_blank" rel="noopener noreferrer"><i class="fas fa-users"></i>⁦منتدى المتابعين للحل السريع</a></li>
+                        <li>3-<a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer"><i class="fas fa-comments"></i>مجموعة الموضوعات</a></li>
+                        <li>4-<a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i>قناة التيك توك</a></li>
                     </ul>
                 </li>
             </ul>
@@ -220,22 +230,22 @@
 
         <div id="search-area">
             <input type="text" id="gameIdInput" placeholder="أدخل ID اللعبة (مثال: SLUS_203.15)">
-            <button onclick="searchArchives()">بحث</button>
+            <button onclick="searchArchives()"><i class="fas fa-search"></i>بحث</button>
         </div>
 
         <div id="status-messages">
-            <p id="message-area" class="loading" style="display:none;">&nbsp;</p>
+            <p id="message-area" class="loading" style="display:none;"> </p>
         </div>
 
         <div id="results">
         </div>
 
         <div class="instructions">
-            <h3>طريقة استخدام الموقع:</h3>
+            <h3><i class="fas fa-info-circle"></i>طريقة استخدام الموقع:</h3>
             <ol>
                 <li>قم بكتابة "معرف اللعبة" (Game ID) الخاص بلعبة البلايستيشن 2 التي تريدها في مربع البحث أعلاه.</li>
                 <li>اضغط على زر "بحث".</li>
-                <li>إذا تم العثور على أرشيف صور ART مطابق، سيظهر لك رابط (يعمل كزر) لتحميل ملف ZIP الخاص باللعبة.</li>
+                <li>إذا تم العثور على أرشيف صور ART مطابق، سيظهر لك رابط لتحميل ملف ZIP الخاص باللعبة.</li>
                 <li>انقر على الرابط لتحميل ملف ZIP. سيتم تحميله بنفس اسمه الأصلي.</li>
                 <li>بعد التحميل، قم بفك ضغط ملف ZIP على جهازك لاستخدام الصور في واجهة OPL أو لأي غرض آخر.</li>
             </ol>
@@ -248,12 +258,11 @@
         const resultsDiv = document.getElementById('results');
         const messageArea = document.getElementById('message-area');
         
-        const zipArchivesBaseUrl = './ps2_covers/'; 
-
+        const zipArchivesBaseUrl = './ps2_covers/';
         window.onload = async function() {
             showMessage('جاري تحميل قائمة الأرشيفات...', 'loading');
             try {
-                const response = await fetch('./ps2_covers.json'); 
+                const response = await fetch('./ps2_covers.json');
                 if (!response.ok) {
                     throw new Error(`خطأ في تحميل ملف JSON: ${response.status} ${response.statusText}`);
                 }
@@ -271,7 +280,6 @@
                 allGameArchives = [];
             }
         };
-
         function showMessage(message, type = 'info') {
             messageArea.textContent = message;
             messageArea.className = type;
@@ -295,7 +303,6 @@
                 if (typeof archiveEntry !== 'object' || archiveEntry === null || typeof archiveEntry.id !== 'string') return false;
                 return archiveEntry.id.toUpperCase().startsWith(gameId);
             });
-
             if (foundArchives.length > 0) {
                 showMessage(`تم العثور على ${foundArchives.length} أرشيف/أرشيفات مطابقة:`, 'info');
                 foundArchives.forEach(archiveEntry => {
@@ -304,7 +311,8 @@
                     const link = document.createElement('a');
                     link.href = `${zipArchivesBaseUrl}${archiveFilename}`; 
                     link.download = archiveFilename; 
-                    link.textContent = `تحميل ${archiveFilename}`; 
+                    // استخدام innerHTML لإضافة الأيقونة مع النص
+                    link.innerHTML = `<i class="fas fa-download"></i>تحميل ${archiveFilename}`; 
                     link.className = 'download-link'; 
                     link.title = `انقر لتحميل ملف الأرشيف: ${archiveFilename}`;
 
