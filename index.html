@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع محترف PS2 لتحميل وتعديل صور ART الالعاب</title>
-    <meta name="description" content="موقع عربي متخصص لتحميل وتعديل أغلفة وأعمال فنية (ART) لألعاب بلايستيشن 2. ابحث بمعرف اللعبة أو قم بتغيير معرفات حزم الصور بسهولة.">
+    <title>موقع محترف PS2 لتحميل صور ART الالعاب بكل سهولة</title>
+    <meta name="description" content="موقع عربي متخصص لتحميل أغلفة وأعمال فنية (ART) لألعاب بلايستيشن 2. ابحث بسهولة باستخدام معرف اللعبة واحصل على حزم صور ZIP جاهزة للاستخدام مع OPL وغيرها.">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -16,328 +16,319 @@
 
     <style>
         body {
-            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
             padding: 20px;
-            background-color: #000000; 
-            color: #c8c8c8; 
-            text-align: center; 
-            line-height: 1.7; 
+            background-color: #000000;
+            color: #c8c8c8;
+            text-align: center;
+            line-height: 1.7;
         }
         #page-container {
-            width: 100%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            background-color: #1a1a1a; 
-            padding: 20px; 
-            border-radius: 8px; 
-            box-shadow: 0 0 15px rgba(0,0,0,0.5); 
-            box-sizing: border-box; 
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            box-sizing: border-box;
         }
         h1 {
-            color: #33A1FF; 
-            margin-bottom: 20px; 
-            font-size: clamp(1.8em, 5vw, 2.5em); 
+            color: #33A1FF;
+            margin-bottom: 20px;
+            font-size: clamp(1.8em, 5vw, 2.5em);
+            word-break: break-word;
+            hyphens: auto;
         }
         h1 .highlight-red {
-            color: #ff3333; 
-        }
-        .interface-section {
-            text-align: right; 
-            margin-top: 25px; 
-            margin-bottom: 25px; 
-            padding: 15px; 
-            background-color: #262626; 
-            border-radius: 5px; 
-        }
-        .interface-section h3 {
-            color: #E0E0E0; 
-            margin-top: 0; 
-            font-size: 1.4em; 
-        }
-        .interface-section p, .interface-section li, .interface-section label {
-            font-size: 1.1em; 
-            color: #c8c8c8; 
+            color: #ff3333;
+            white-space: nowrap;
         }
         .site-description {
-             margin-bottom: 25px; /* مسافة بين الروابط والبحث */
+            text-align: right;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #262626;
+            border-radius: 5px;
+        }
+        .site-description h3 {
+            color: #E0E0E0;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+        .site-description p, .site-description li {
+            font-size: 1.08em;
+            color: #c8c8c8;
         }
         .site-description ul {
-            list-style-type: none; 
-            padding-right: 0; 
+            list-style-type: none;
+            padding-right: 0;
         }
         .site-description li {
-            margin-bottom: 5px; 
+            margin-bottom: 5px;
         }
         .site-description ul ul {
-            padding-right: 20px; 
-            margin-top: 5px; 
+            padding-right: 20px;
+            margin-top: 5px;
+        }
+        .site-description .game-id-example-container {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        .site-description .game-id-example-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .site-description .highlight-id-text {
+            color: #FFFF00;
+            font-weight: bold;
+            font-size: 1em;
+            text-shadow: 0 0 5px rgba(255,255,0,0.5);
+            display: block;
+            margin-top: 15px;
+        }
+        .instructions {
+            text-align: right;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #262626;
+            border-radius: 5px;
+        }
+        .instructions h3 {
+            color: #E0E0E0;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+        .instructions ol {
+            padding-right: 20px; /* لإعطاء مسافة للائحة */
+        }
+        .instructions p, .instructions li {
+            font-size: 1.15em;
+            color: #c8c8c8;
+            margin-bottom: 10px; /* إضافة مسافة بين عناصر الشرح */
         }
         a {
-            color: #5ca9fc; 
-            text-decoration: none; 
+            color: #5ca9fc;
+            text-decoration: none;
+            transition: color 0.3s;
         }
         a:hover {
-            color: #8ec1fa; 
-            text-decoration: underline; 
+            color: #8ec1fa;
+            text-decoration: underline;
         }
-        input[type="text"] {
-            padding: 12px; 
-            border: 1px solid #444; 
-            border-radius: 4px; 
+        #search-area {
+            margin-bottom: 20px;
+        }
+        #search-area input[type="text"] {
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 4px;
             width: 100%;
+            max-width: 350px;
             box-sizing: border-box;
-            background-color: #333333; 
-            color: #ffffff; 
-            font-size: 1.05em; 
-            margin-bottom: 15px;
+            background-color: #333333;
+            color: #ffffff;
+            font-size: 1.05em;
+            display: block;
+            margin: 0 auto 15px auto;
         }
-        button {
-            padding: 12px 25px; 
-            background-color: #007bff; 
-            color: white; 
-            border: none; 
-            border-radius: 4px; 
-            cursor: pointer; 
-            transition: background-color 0.3s; 
-            font-size: 1.05em; 
-            display: block; 
-            margin: 0 auto; 
+        #search-area button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.05em;
+            display: block;
+            margin: 0 auto;
         }
-        button:hover {
-            background-color: #0056b3; 
+        #search-area button:hover {
+            background-color: #0056b3;
         }
-        .status-message {
-            margin-top: 20px; 
-            min-height: 25px; 
-            font-size: 1.15em; 
+        #status-messages {
+            margin-top: 20px;
+            min-height: 25px;
+            font-size: 1.15em;
         }
         .error { color: #ff6666; }
         .loading { color: #f0f0f0; }
         .success { color: #66ff66; }
-        .results-area {
-            margin-top: 25px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 10px;
-        }
-        .results-area a.download-link {
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 10px 15px; 
-            background-color: #007bff; 
-            color: white; 
-            border-radius: 4px; 
-            text-decoration: none; 
-            font-size: 1.05em; 
-        }
-        .results-area a.download-link:hover {
-            background-color: #0056b3; 
-        }
-        i.fas, i.fab {
-            margin-left: 8px; 
-        }
-        .id-changer-area {
+        #results {
+            margin-top: 25px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            max-width: 450px;
-            margin: 20px auto 0 auto;
+            align-items: center;
+            gap: 10px;
         }
-        .nav-button {
+        #results a.download-link {
+            display: inline-flex; /* Use inline-flex for better alignment */
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 1.05em;
+            min-width: 250px;
+            text-align: center;
+        }
+        #results a.download-link:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        .site-description .copyright-text {
             margin-top: 20px;
-            background-color: #3e8e41; /* لون مختلف لزر التنقل */
+            font-size: 0.9em;
+            color: #888888;
         }
-        .nav-button:hover {
-            background-color: #2e6b31;
+        /* --- تنسيقات بسيطة للأيقونات --- */
+        i.fas, i.fab {
+            margin-left: 8px; /* مسافة على يسار الأيقونة */
+        }
+        a > i, button > i {
+            margin-right: 0; /* تأكيد عدم وجود مسافة إضافية */
         }
     </style>
 </head>
 <body>
     <div id="page-container">
-        <h1><i class="fas fa-gamepad"></i>موقع <span class="highlight-red">محترف PS2</span> لتحميل وتعديل صور ART الالعاب</h1>
+        <h1><i class="fas fa-gamepad"></i>موقع <span class="highlight-red">محترف PS2</span> لتحميل صور ART الالعاب بكل سهولة</h1>
 
-        <div class="interface-section" id="search-interface">
-            <h3><i class="fas fa-search"></i>واجهة البحث والتحميل</h3>
+        <div class="site-description">
+            <h3><i class="fas fa-satellite-dish"></i>تابعنا وكن على اطلاع:</h3>
+            <ul>
+                <li><a href="https://youtube.com/@mohtaref_ps2?si=0z4x36S8ylMKzEDc" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i>اشترك الان في قناة اليوتيوب ❤️</a></li>
+                <li>انضم معنا في:
+                    <ul>
+                        <li>1-<a href="https://t.me/mohtaref_ps2_1" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i>قناة التيليكرام</a></li>
+                        <li>2-<a href="https://t.me/mohtaref_ps2_3/788" target="_blank" rel="noopener noreferrer"><i class="fas fa-users"></i>⁦منتدى المتابعين للحل السريع</a></li>
+                        <li>3-<a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer"><i class="fas fa-comments"></i>مجموعة الموضوعات</a></li>
+                        <li>4-<a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i>قناة التيك توك</a></li>
+                    </ul>
+                </li>
+            </ul>
 
-            <div class="site-description">
-                <h3><i class="fas fa-satellite-dish"></i>تابعنا وكن على اطلاع:</h3>
-                <ul>
-                    <li><a href="https://youtube.com/@mohtaref_ps2?si=0z4x36S8ylMKzEDc" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i>اشترك الان في قناة اليوتيوب ❤️</a></li> 
-                    <li>انضم معنا في:
-                        <ul>
-                            <li>1-<a href="https://t.me/mohtaref_ps2_1" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i>قناة التيليكرام</a></li> 
-                            <li>2-<a href="https://t.me/mohtaref_ps2_3/788" target="_blank" rel="noopener noreferrer"><i class="fas fa-users"></i>⁦منتدى المتابعين للحل السريع</a></li> 
-                            <li>3-<a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer"><i class="fas fa-comments"></i>مجموعة الموضوعات</a></li> 
-                            <li>4-<a href="https://t.me/mohtaref_ps2_3" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i>قناة التيك توك</a></li> 
-                        </ul>
-                    </li>
-                </ul>
+            <div class="game-id-example-container">
+                <img src="a.png" alt="مثال على موقع Game ID في OPL">
+                <p><span class="highlight-id-text">🌟هنا تجد ID اللعبة الخاص بك🌟</span></p>
             </div>
-
-            <div id="search-area">
-                <input type="text" id="gameIdInput" placeholder="أدخل ID اللعبة (مثال: SLUS_203.15)"> 
-                <button onclick="searchArchives()"><i class="fas fa-search"></i>بحث</button>
-            </div>
-            <div id="status-messages">
-                <p id="message-area" class="loading" style="display:none;"></p>
-            </div>
-            <div id="results" class="results-area"></div>
-            
-            <button class="nav-button" onclick="showChanger()"><i class="fas fa-edit"></i>الانتقال إلى واجهة تعديل الأيدي</button>
+            <p class="copyright-text">جميع الحقوق محفوظة لموقع محترف PS2.</p>
         </div>
 
-        <div class="interface-section" id="changer-interface" style="display:none;">
-            <h3><i class="fas fa-edit"></i>واجهة تغيير ايدي الصور</h3>
-            <p>تقوم هذه الواجهة بسحب ملف صور بناءً على الأيدي الأصلي، وتغيير أسماء كل الصور بداخله إلى الأيدي الجديد، ثم تتيح لك تحميل الملف المعدل.</p>
-            <div class="id-changer-area">
-                <div>
-                    <label for="originalIdInput">1. الأيدي الأصلي للملف (الذي تريد سحبه):</label>
-                    <input type="text" id="originalIdInput" placeholder="مثال: SLES_556.22">
-                </div>
-                <div>
-                    <label for="newIdInput">2. الأيدي الجديد المطلوب (الذي تريد تطبيقه):</label>
-                    <input type="text" id="newIdInput" placeholder="مثال: SLUS_203.15">
-                </div>
-            </div>
-            <button onclick="renameAndPackage()"><i class="fas fa-sync-alt"></i>تغيير وتحميل</button>
-            <div id="id-changer-status">
-                <p id="id-changer-message" class="loading" style="display:none;"></p>
-            </div>
-            <div id="id-changer-results" class="results-area"></div>
-
-            <button class="nav-button" onclick="showSearch()"><i class="fas fa-search"></i>العودة إلى واجهة البحث</button>
+        <div id="search-area">
+            <input type="text" id="gameIdInput" placeholder="أدخل ID اللعبة (مثال: SLUS_203.15)">
+            <button onclick="searchArchives()"><i class="fas fa-search"></i>بحث</button>
         </div>
-        
+
+        <div id="status-messages">
+            <p id="message-area" class="loading" style="display:none;"> </p>
+        </div>
+
+        <div id="results">
+        </div>
+
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i>طريقة استخدام الموقع:</h3>
+            <ol>
+                <li>قم بكتابة "معرف اللعبة" (Game ID) الخاص بلعبة البلايستيشن 2 التي تريدها في مربع البحث أعلاه.</li>
+                <li>اضغط على زر "بحث".</li>
+                <li>إذا تم العثور على أرشيف صور ART مطابق، سيظهر لك رابط لتحميل ملف ZIP الخاص باللعبة.</li>
+                <li>انقر على الرابط لتحميل ملف ZIP. سيتم تحميله بنفس اسمه الأصلي.</li>
+                <li>بعد التحميل، قم بفك ضغط ملف ZIP على جهازك لاستخدام الصور في واجهة OPL أو لأي غرض آخر.</li>
+            </ol>
+        </div>
     </div>
 
     <script>
-        // --- DOM Elements ---
-        const searchInterface = document.getElementById('search-interface');
-        const changerInterface = document.getElementById('changer-interface');
-
-        const gameIdInput = document.getElementById('gameIdInput'); 
-        const resultsDiv = document.getElementById('results'); 
-        const messageArea = document.getElementById('message-area'); 
+        let allGameArchives = [];
+        const gameIdInput = document.getElementById('gameIdInput');
+        const resultsDiv = document.getElementById('results');
+        const messageArea = document.getElementById('message-area');
         
-        // --- Global Variables ---
-        let allGameArchives = []; 
-        const zipArchivesBaseUrl = './ps2_covers/'; 
-
-        // --- Functions to switch between interfaces ---
-        function showSearch() {
-            searchInterface.style.display = 'block';
-            changerInterface.style.display = 'none';
-        }
-
-        function showChanger() {
-            searchInterface.style.display = 'none';
-            changerInterface.style.display = 'block';
-        }
-
-        // --- Generic Message Function ---
-        function showMessage(message, type, elementId) {
-            const el = document.getElementById(elementId);
-            if (el) {
-                el.textContent = message; 
-                el.className = `status-message ${type}`; 
-                el.style.display = message ? 'block' : 'none'; 
-            }
-        }
-
-        // --- On Page Load ---
+        const zipArchivesBaseUrl = './ps2_covers/';
         window.onload = async function() {
-            showMessage('جاري تحميل قائمة الأرشيفات...', 'loading', 'message-area'); 
+            showMessage('جاري تحميل قائمة الأرشيفات...', 'loading');
             try {
-                const response = await fetch('./ps2_covers.json'); 
-                if (!response.ok) { 
-                    throw new Error(`خطأ في تحميل ملف JSON: ${response.status} ${response.statusText}`); 
+                const response = await fetch('./ps2_covers.json');
+                if (!response.ok) {
+                    throw new Error(`خطأ في تحميل ملف JSON: ${response.status} ${response.statusText}`);
                 }
-                allGameArchives = await response.json(); 
-                showMessage('تم تحميل قائمة الأرشيفات بنجاح. جاهز للبحث.', 'success', 'message-area'); 
+                allGameArchives = await response.json();
+                if (!Array.isArray(allGameArchives)) {
+                    throw new Error('ملف JSON لا يحتوي على مصفوفة (array) صحيحة.');
+                }
+                if (allGameArchives.length > 0 && (typeof allGameArchives[0].id === 'undefined' || typeof allGameArchives[0].archiveFile === 'undefined')) {
+                    throw new Error("هيكل البيانات في ملف JSON غير صحيح. يجب أن يحتوي كل عنصر على 'id' و 'archiveFile'.");
+                }
+                showMessage('تم تحميل قائمة الأرشيفات بنجاح. جاهز للبحث.', 'success');
             } catch (error) {
-                console.error("خطأ في تحميل أو تحليل ملف JSON:", error); 
-                showMessage(`فشل تحميل قائمة الأرشيفات. تأكد من تشغيل خادم بايثون وأن الملف موجود. الخطأ: ${error.message}`, 'error', 'message-area'); 
+                console.error("خطأ في تحميل أو تحليل ملف JSON:", error);
+                showMessage(`فشل تحميل قائمة الأرشيفات: ${error.message}`, 'error');
+                allGameArchives = [];
             }
         };
+        function showMessage(message, type = 'info') {
+            messageArea.textContent = message;
+            messageArea.className = type;
+            messageArea.style.display = message ? 'block' : 'none';
+        }
 
-        // --- Search Logic ---
         function searchArchives() {
-            const gameId = gameIdInput.value.trim().toUpperCase(); 
-            resultsDiv.innerHTML = ''; 
+            const gameId = gameIdInput.value.trim().toUpperCase();
+            resultsDiv.innerHTML = '';
+
+            if (allGameArchives.length === 0 && !messageArea.classList.contains('error')) {
+                 showMessage('قائمة الأرشيفات لم يتم تحميلها بعد أو فارغة. الرجاء الانتظار أو التحقق من ملف JSON.', 'error');
+                 return;
+            }
             if (!gameId) {
-                showMessage('الرجاء إدخال معرف اللعبة للبحث.', 'error', 'message-area'); 
+                showMessage('الرجاء إدخال معرف اللعبة للبحث.', 'error');
                 return;
             }
-            const foundArchives = allGameArchives.filter(archiveEntry => 
-                archiveEntry.id.toUpperCase().startsWith(gameId)
-            );
+
+            const foundArchives = allGameArchives.filter(archiveEntry => {
+                if (typeof archiveEntry !== 'object' || archiveEntry === null || typeof archiveEntry.id !== 'string') return false;
+                return archiveEntry.id.toUpperCase().startsWith(gameId);
+            });
             if (foundArchives.length > 0) {
-                showMessage(`تم العثور على ${foundArchives.length} أرشيف/أرشيفات مطابقة:`, 'info', 'message-area'); 
+                showMessage(`تم العثور على ${foundArchives.length} أرشيف/أرشيفات مطابقة:`, 'info');
                 foundArchives.forEach(archiveEntry => {
+                    const archiveFilename = archiveEntry.archiveFile; 
+                    
                     const link = document.createElement('a');
-                    link.href = `${zipArchivesBaseUrl}${archiveEntry.archiveFile}`; 
-                    link.download = archiveEntry.archiveFile; 
-                    link.innerHTML = `<i class="fas fa-download"></i>تحميل ${archiveEntry.archiveFile}`; 
+                    link.href = `${zipArchivesBaseUrl}${archiveFilename}`; 
+                    link.download = archiveFilename; 
+                    // استخدام innerHTML لإضافة الأيقونة مع النص
+                    link.innerHTML = `<i class="fas fa-download"></i>تحميل ${archiveFilename}`; 
                     link.className = 'download-link'; 
+                    link.title = `انقر لتحميل ملف الأرشيف: ${archiveFilename}`;
+
                     resultsDiv.appendChild(link);
                 });
             } else {
-                showMessage('لم يتم العثور على أرشيفات صور تطابق هذا المعرف.', 'info', 'message-area'); 
+                showMessage('لم يتم العثور على أرشيفات صور تطابق هذا المعرف.', 'info');
             }
         }
-        
+
         gameIdInput.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 event.preventDefault();
                 searchArchives();
             }
         });
-
-        // --- ID Changer Logic ---
-        async function renameAndPackage() {
-            const originalIdInput = document.getElementById('originalIdInput');
-            const newIdInput = document.getElementById('newIdInput');
-            const changerResultsDiv = document.getElementById('id-changer-results');
-
-            const originalId = originalIdInput.value.trim();
-            const newId = newIdInput.value.trim();
-            
-            changerResultsDiv.innerHTML = '';
-
-            if (!originalId || !newId) {
-                showMessage('الرجاء إدخال الأيدي الأصلي والجديد.', 'error', 'id-changer-message');
-                return;
-            }
-
-            showMessage('جاري تعديل الملف... قد تستغرق هذه العملية بضع ثوانٍ.', 'loading', 'id-changer-message');
-
-            try {
-                const response = await fetch('/rename-and-zip', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ original_id: originalId, new_id: newId })
-                });
-
-                const data = await response.json();
-
-                if (response.ok && data.success) {
-                    showMessage('تم إنشاء الملف المعدل بنجاح! جاهز للتحميل.', 'success', 'id-changer-message');
-                    const link = document.createElement('a');
-                    link.href = data.download_url;
-                    link.innerHTML = `<i class="fas fa-download"></i>تحميل الملف الجديد (${data.filename})`;
-                    link.className = 'download-link';
-                    changerResultsDiv.appendChild(link);
-                } else {
-                    throw new Error(data.error || 'حدث خطأ غير معروف في الخادم.');
-                }
-            } catch (error) {
-                console.error("Error during rename and package:", error);
-                showMessage(`فشل: ${error.message}`, 'error', 'id-changer-message');
-            }
-        }
     </script>
 </body>
 </html>
