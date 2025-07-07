@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أداة تغيير ID الصور</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <style>
+        /* === استايل مأخوذ من الموقع الرئيسي === */
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            background-color: #000000;
+            color: #c8c8c8;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        #page-container {
+            background-color: #1a1a1a;
+            padding: clamp(20px, 5vw, 40px);
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #33A1FF;
+            margin-bottom: 20px;
+            font-size: clamp(1.8em, 5vw, 2.5em);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .nav-link-btn {
+            display: inline-block;
+            background-color: #ff3333;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-link-btn:hover {
+            background-color: #d62b2b;
+            color: white;
+        }
+        .nav-link-btn i {
+            margin-left: 8px;
+        }
+
+        .changer-container {
+            background-color: #262626;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #E0E0E0;
+        }
+
+        .input-field {
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #333333;
+            color: #ffffff;
+            font-size: 1.05em;
+        }
+        
+        .file-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px;
+            border: 2px dashed #444;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #333;
+            box-sizing: border-box;
+        }
+
+        .file-label:hover {
+            border-color: #007bff;
+            background-color: #3a3a3a;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.1em;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            display: none;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        
+        .status-container {
+            margin-top: 20px;
+            min-height: 25px;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+        .error { color: #ff6666; }
+        .loading { color: #f0f0f0; }
+        .success { color: #66ff66; }
+
+        /* === تنسيق صندوق التعليمات المضاف حديثاً === */
+        .instructions {
+            text-align: right;
+            margin-top: 30px;
+            padding: 30px;
+            background-color: #262626;
+            border-radius: 5px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #E0E0E0;
+        }
+        .instructions ol {
+            padding-right: 20px;
+            margin-bottom: 0;
+            line-height: 2;
+        }
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="page-container">
+        <div class="content-wrapper">
+            <h1><i class="fas fa-retweet"></i>أداة تغيير ID الصور</h1>
+
+            <a href="./index.html" class="nav-link-btn" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-home"></i>
+                العودة لموقع تحميل الصور
+            </a>
+
+            <div class="changer-container">
+                <div class="input-group">
+                    <label for="changerGameIdInput"><i class="fas fa-id-card"></i>1. أدخل ID الجديد:</label>
+                    <input type="text" id="changerGameIdInput" class="input-field" placeholder="مثال: SLUS_123.45">
+                </div>
+                 <div class="input-group">
+                    <label for="anyFiles"><i class="fas fa-folder-open"></i>2. اختر الملفات (ملف أو أكثر):</label>
+                    <label for="anyFiles" class="file-label">
+                        <i class="fas fa-paperclip"></i>
+                        <span id="file-name-span">اختر الملفات...</span>
+                    </label>
+                    <input type="file" id="anyFiles" multiple>
+                 </div>
+                <button id="processButton" class="btn"><i class="fas fa-cogs"></i>معالجة وتجهيز</button>
+                <button id="downloadButton" class="btn btn-success"><i class="fas fa-download"></i>تحميل الملف</button>
+                <div class="status-container"><p id="changer-status"></p></div>
+            </div>
+
+            <div class="instructions">
+                <h3><i class="fas fa-info-circle"></i> كيفية استخدام الأداة:</h3>
+                <ol>
+                    <li><strong>إدخال المعرف الجديد:</strong> في الخانة الأولى، اكتب الـ ID الجديد الذي تريد تطبيقه على الصور.</li>
+                    <li><strong>اختيار الصور:</strong> اضغط على خانة اختيار الملفات لاختيار صورة واحدة أو أكثر تريد تغيير اسمها.</li>
+                    <li><strong>المعالجة:</strong> اضغط على زر "معالجة وتجهيز".</li>
+                    <li><strong>التحميل:</strong> بعد انتهاء المعالجة، سيظهر زر "تحميل الملف". اضغط عليه لتحميل ملف ZIP الذي يحتوي على صورك بالأسماء الجديدة.</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            let zipContent = null;
+            const gameIdInput = document.getElementById('changerGameIdInput');
+            const filesInput = document.getElementById('anyFiles');
+            const statusEl = document.getElementById('changer-status');
+            const processButton = document.getElementById('processButton');
+            const downloadButton = document.getElementById('downloadButton');
+            const fileNameSpan = document.getElementById('file-name-span');
+
+            function showChangerMessage(message, type) {
+                statusEl.textContent = message;
+                statusEl.className = type;
+            }
+
+            function resetChangerUI() {
+                showChangerMessage('', 'loading');
+                zipContent = null;
+                downloadButton.style.display = 'none';
+                processButton.style.display = 'inline-flex';
+                processButton.disabled = false;
+            }
+
+            function processFiles() {
+                const gameId = gameIdInput.value.trim();
+                const files = filesInput.files;
+                if (!gameId) { alert('الرجاء إدخال ID الجديد.'); return; }
+                if (files.length === 0) { alert('الرجاء اختيار ملف واحد على الأقل.'); return; }
+
+                processButton.disabled = true;
+                showChangerMessage('جاري المعالجة...', 'loading');
+
+                setTimeout(() => {
+                    const zip = new JSZip();
+                    Array.from(files).forEach(file => {
+                        const originalName = file.name;
+                        const extension = originalName.slice(originalName.lastIndexOf('.'));
+                        const nameWithoutExt = originalName.slice(0, originalName.lastIndexOf('.'));
+                        const firstUnderscoreIndex = nameWithoutExt.indexOf('_');
+                        let secondUnderscoreIndex = (firstUnderscoreIndex !== -1) ? nameWithoutExt.indexOf('_', firstUnderscoreIndex + 1) : -1;
+                        let newName = (secondUnderscoreIndex !== -1)
+                            ? gameId + nameWithoutExt.substring(secondUnderscoreIndex) + extension
+                            : originalName;
+                        zip.file(newName, file, { compression: "STORE" });
+                    });
+                    zip.generateAsync({ type: "blob" })
+                        .then(content => {
+                            zipContent = content;
+                            showChangerMessage('تم! الملف جاهز للتحميل.', 'success');
+                            processButton.style.display = 'none';
+                            downloadButton.style.display = 'inline-flex';
+                        })
+                        .catch(err => {
+                            showChangerMessage(`حدث خطأ: ${err.message}`, 'error');
+                            processButton.disabled = false;
+                        });
+                }, 200);
+            }
+
+            function downloadZip() {
+                 if (zipContent) {
+                    const gameId = gameIdInput.value.trim();
+                    if (!gameId) { alert('ID فارغ، لا يمكن إنشاء اسم للملف.'); return; }
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(zipContent);
+                    link.download = `${gameId}.zip`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    showChangerMessage('تم تحميل الملف، ستجده في مجلد التنزيلات (Downloads).', 'success');
+                }
+            }
+
+            gameIdInput.addEventListener('input', resetChangerUI);
+            filesInput.addEventListener('change', () => {
+                resetChangerUI();
+                const count = filesInput.files.length;
+                if (count === 1) {
+                    fileNameSpan.textContent = 'ملف واحد تم اختياره';
+                } else if (count > 1) {
+                    fileNameSpan.textContent = `${count} ملفات تم اختيارها`;
+                } else {
+                    fileNameSpan.textContent = 'اختر الملفات...';
+                }
+            });
+            processButton.addEventListener('click', processFiles);
+            downloadButton.addEventListener('click', downloadZip);
+        })();
+    </script>
+</body>
+</html>

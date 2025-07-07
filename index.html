@@ -118,12 +118,12 @@
             margin-bottom: 10px; /* إضافة مسافة بين عناصر الشرح */
         }
         a {
-            color: #5ca9fc;
+            color: #58a6ff;
             text-decoration: none;
             transition: color 0.3s;
         }
         a:hover {
-            color: #8ec1fa;
+            color: #82c0ff;
             text-decoration: underline;
         }
         #search-area {
@@ -194,7 +194,6 @@
             font-size: 0.9em;
             color: #888888;
         }
-        /* --- تنسيقات بسيطة للأيقونات --- */
         i.fas, i.fab {
             margin-left: 8px; /* مسافة على يسار الأيقونة */
         }
@@ -206,6 +205,8 @@
 <body>
     <div id="page-container">
         <h1><i class="fas fa-gamepad"></i>موقع <span class="highlight-red">محترف PS2</span> لتحميل صور ART الالعاب بكل سهولة</h1>
+
+        <a href="./changer.html" style="display: inline-block; background-color: #28a745; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.1em; margin-bottom: 30px; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'"><i class="fas fa-retweet"></i> اداة تغيير ايدي ID الصور</a>
 
         <div class="site-description">
             <h3><i class="fas fa-satellite-dish"></i>تابعنا وكن على اطلاع:</h3>
@@ -225,7 +226,7 @@
                 <img src="a.png" alt="مثال على موقع Game ID في OPL">
                 <p><span class="highlight-id-text">🌟هنا تجد ID اللعبة الخاص بك🌟</span></p>
             </div>
-            <p class="copyright-text">جميع الحقوق محفوظة لموقع محترف PS2.</p>
+           <p class="copyright-text">جميع الحقوق محفوظة لموقع محترف PS2.</p>
         </div>
 
         <div id="search-area">
@@ -235,7 +236,7 @@
 
         <div id="status-messages">
             <p id="message-area" class="loading" style="display:none;"> </p>
-        </div>
+         </div>
 
         <div id="results">
         </div>
@@ -244,7 +245,7 @@
             <h3><i class="fas fa-info-circle"></i>طريقة استخدام الموقع:</h3>
             <ol>
                 <li>قم بكتابة "معرف اللعبة" (Game ID) الخاص بلعبة البلايستيشن 2 التي تريدها في مربع البحث أعلاه.</li>
-                <li>اضغط على زر "بحث".</li>
+                 <li>اضغط على زر "بحث".</li>
                 <li>إذا تم العثور على أرشيف صور ART مطابق، سيظهر لك رابط لتحميل ملف ZIP الخاص باللعبة.</li>
                 <li>انقر على الرابط لتحميل ملف ZIP. سيتم تحميله بنفس اسمه الأصلي.</li>
                 <li>بعد التحميل، قم بفك ضغط ملف ZIP على جهازك لاستخدام الصور في واجهة OPL أو لأي غرض آخر.</li>
@@ -259,6 +260,7 @@
         const messageArea = document.getElementById('message-area');
         
         const zipArchivesBaseUrl = './ps2_covers/';
+
         window.onload = async function() {
             showMessage('جاري تحميل قائمة الأرشيفات...', 'loading');
             try {
@@ -280,6 +282,7 @@
                 allGameArchives = [];
             }
         };
+
         function showMessage(message, type = 'info') {
             messageArea.textContent = message;
             messageArea.className = type;
@@ -303,6 +306,7 @@
                 if (typeof archiveEntry !== 'object' || archiveEntry === null || typeof archiveEntry.id !== 'string') return false;
                 return archiveEntry.id.toUpperCase().startsWith(gameId);
             });
+
             if (foundArchives.length > 0) {
                 showMessage(`تم العثور على ${foundArchives.length} أرشيف/أرشيفات مطابقة:`, 'info');
                 foundArchives.forEach(archiveEntry => {
@@ -311,7 +315,6 @@
                     const link = document.createElement('a');
                     link.href = `${zipArchivesBaseUrl}${archiveFilename}`; 
                     link.download = archiveFilename; 
-                    // استخدام innerHTML لإضافة الأيقونة مع النص
                     link.innerHTML = `<i class="fas fa-download"></i>تحميل ${archiveFilename}`; 
                     link.className = 'download-link'; 
                     link.title = `انقر لتحميل ملف الأرشيف: ${archiveFilename}`;
