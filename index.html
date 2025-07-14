@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع محترف PS2 لتحميل صور ART الالعاب بكل سهولة</title>
-    <meta name="description" content="موقع عربي متخصص لتحميل أغلفة وأعمال فنية (ART) لألعاب بلايستيشن 2. ابحث بسهولة باستخدام معرف اللعبة واحصل على حزم صور ZIP جاهزة للاستخدام مع OPL وغيرها.">
+    <meta name="description" content="موقع عربي متخصص لتحميل أغلفة وأعمال فنية (ART) لألعاب بلايستيشن 1 وبلايستيشن 2. ابحث بسهولة باستخدام معرف اللعبة واحصل على حزم صور ZIP جاهزة للاستخدام مع OPL وغيرها.">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -130,7 +130,6 @@
             margin-bottom: 20px;
         }
         
-        /* === التعديل هنا: تنسيق مربع النص الجديد === */
         #gameIdInput {
             padding: 12px;
             border: 1px solid #444;
@@ -143,8 +142,8 @@
             font-size: 1.05em;
             display: block;
             margin: 0 auto 15px auto;
-            resize: none; /* منع تغيير الحجم يدوياً */
-            overflow-y: hidden; /* إخفاء شريط التمرير العمودي */
+            resize: none;
+            overflow-y: hidden;
             text-align: center;
             line-height: 1.5;
         }
@@ -233,6 +232,11 @@
                 <img src="a.png" alt="مثال على موقع Game ID في OPL">
                 <p><span class="highlight-id-text">🌟هنا تجد ID اللعبة الخاص بك🌟</span></p>
             </div>
+            
+            <p style="color: #33FFC4; font-weight: bold; font-size: 1.15em; margin-top: 25px; margin-bottom: 25px; text-shadow: 0 0 7px rgba(51, 255, 196, 0.5);">
+            📌 الموقع يحتوي على مكتبة ضخمة لصور العاب البلاي ستيشن 2 و البلاي ستيشن 1 فقط حمل الصور و استمتع
+            </p>
+
            <p class="copyright-text">جميع الحقوق محفوظة لموقع محترف PS2.</p>
         </div>
 
@@ -262,7 +266,7 @@
 
     <script>
         let allGameArchives = [];
-        const gameIdInput = document.getElementById('gameIdInput'); // الآن هو textarea
+        const gameIdInput = document.getElementById('gameIdInput');
         const resultsDiv = document.getElementById('results');
         const messageArea = document.getElementById('message-area');
         
@@ -300,26 +304,22 @@
                  return;
             }
 
-            // === التعديل الرئيسي هنا: البحث باستخدام الأسطر الجديدة ===
             const rawInput = gameIdInput.value.trim().toUpperCase();
             if (!rawInput) {
                 showMessage('الرجاء إدخال معرف لعبة واحد على الأقل للبحث.', 'error');
                 return;
             }
 
-            // تقسيم النص إلى أسطر، وإزالة الأسطر الفارغة
             const idsToSearch = rawInput.split('\n').map(id => id.trim()).filter(id => id);
             
             let foundArchives = [];
             
-            // البحث عن كل ID بشكل مطابق تماماً
             idsToSearch.forEach(idToSearch => {
                 const found = allGameArchives.find(archive => archive.id.toUpperCase() === idToSearch);
                 if (found && !foundArchives.some(existing => existing.id === found.id)) {
                     foundArchives.push(found);
                 }
             });
-            // === نهاية التعديل الرئيسي ===
 
             if (foundArchives.length > 0) {
                 showMessage(`تم العثور على ${foundArchives.length} نتيجة/نتائج مطابقة:`, 'info');
@@ -339,16 +339,14 @@
         }
 
         gameIdInput.addEventListener('keypress', function(event) {
-            // السماح بـ Enter لإنشاء سطر جديد بدلاً من البحث
             if (event.key === 'Enter' && !event.shiftKey) {
-                // يمكن ترك هذا فارغاً أو إضافة وظيفة بحث عند الضغط على Ctrl+Enter مثلاً
+                // This part is kept empty to allow 'Enter' for new lines.
             }
         });
 
-        // === الكود الجديد لتوسيع خانة البحث طولياً ===
         gameIdInput.addEventListener('input', function() {
-            this.style.height = 'auto'; // إعادة ضبط الارتفاع للسماح بالانكماش
-            this.style.height = (this.scrollHeight) + 'px'; // ضبط الارتفاع ليناسب المحتوى
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
         });
 
     </script>
